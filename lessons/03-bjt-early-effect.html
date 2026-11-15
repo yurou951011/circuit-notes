@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BJT 的 Early effect｜電路筆記</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-lesson="03-bjt-early-effect">
+<header>
+  <a href="../index.html">回課程清單</a>
+  <h1>BJT 的 Early effect</h1>
+  <p class="lead">V<sub>CE</sub> 升高時，集極電流會微幅上升，這就是 Early effect。</p>
+</header>
+<main class="lesson">
+  <h2>學習目標</h2>
+  <ul><li>說明 Early effect 讓 I<sub>C</sub> 如何隨 V<sub>CE</sub> 改變</li><li>用 V<sub>A</sub> 計算 I<sub>C</sub> 與輸出電阻 r<sub>o</sub></li></ul>
+  <h2>重點觀念</h2>
+  <p>BJT 在作用區時，V<sub>CE</sub> 變大會讓基極有效寬度變窄，集極電流略為增加（Early effect，基極寬度調變）。把 I<sub>C</sub>–V<sub>CE</sub> 曲線往左延長，會交在 V<sub>CE</sub> = −V<sub>A</sub>，V<sub>A</sub> 稱為 Early 電壓。</p>
+  <h2>公式</h2>
+  <p class="formula">I<sub>C</sub> = I<sub>S</sub> · e<sup>V<sub>BE</sub>/V<sub>T</sub></sup> · (1 + V<sub>CE</sub>/V<sub>A</sub>)　　r<sub>o</sub> = (V<sub>A</sub> + V<sub>CE</sub>) / I<sub>C</sub></p>
+  <p>V<sub>A</sub>：Early 電壓（V）；r<sub>o</sub>：輸出電阻（Ω）。令 I<sub>C0</sub> = I<sub>S</sub>·e<sup>V<sub>BE</sub>/V<sub>T</sub></sup>，代表忽略 Early effect 時的集極電流。</p>
+  <h2>範例</h2>
+  <div class="example">
+    <p><strong>題目：</strong>β = 100、V<sub>A</sub> = 100 V，V<sub>BE</sub> 固定使 I<sub>C0</sub> = 1 mA。電晶體在作用區，V<sub>CE</sub> = 5 V，求 I<sub>C</sub>、I<sub>B</sub> 與 r<sub>o</sub>。</p>
+    <p><strong>解法：</strong>I<sub>C</sub> = 1 mA × (1 + 5/100) = 1.05 mA。I<sub>B</sub> = I<sub>C</sub>/β = 1.05 mA / 100。r<sub>o</sub> = (100 + 5) V / 1.05 mA。</p>
+    <p><strong>答案：</strong>I<sub>C</sub> = 1.05 mA；I<sub>B</sub> = 10.5 µA；r<sub>o</sub> = 100 kΩ。</p>
+  </div>
+  <h2>常見錯誤</h2>
+  <div class="pitfall"><ul>
+    <li>漏掉 (1 + V<sub>CE</sub>/V<sub>A</sub>)，會得到 1 mA，少算 0.05 mA（約 5%）。</li>
+    <li>把 V<sub>A</sub> 當成電路中真的存在的電壓；它只是曲線外插得到的模型參數。</li>
+    <li>單位混用：V<sub>A</sub> 用 V、I<sub>C</sub> 用 mA 時，r<sub>o</sub> 的結果單位是 kΩ。</li>
+  </ul></div>
+  <h2>小結</h2>
+  <p>V<sub>A</sub> 越大，曲線越平，r<sub>o</sub> 越大，電晶體越接近理想電流源。</p>
+</main>
+<nav id="pager"></nav>
+<footer>電路筆記</footer>
+<script src="../assets/lessons.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>
