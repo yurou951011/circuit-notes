@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NMOS 飽和區電流｜電路筆記</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-lesson="01-nmos-saturation">
+<header>
+  <a href="../index.html">回課程清單</a>
+  <h1>NMOS 飽和區電流</h1>
+  <p class="lead">先確認進入飽和區，再用含通道長度調變的公式算 I<sub>D</sub>。</p>
+</header>
+<main class="lesson">
+  <h2>學習目標</h2>
+  <ul><li>判斷 NMOS 是否工作在飽和區</li><li>用含 λ 的公式計算汲極電流</li></ul>
+  <h2>重點觀念</h2>
+  <p>過驅動電壓 V<sub>ov</sub> = V<sub>GS</sub> − V<sub>t</sub>。當 V<sub>GS</sub> &gt; V<sub>t</sub> 且 V<sub>DS</sub> ≥ V<sub>ov</sub>，電晶體在飽和區，電流主要由 V<sub>ov</sub> 決定，並隨 V<sub>DS</sub> 微幅上升（通道長度調變 channel-length modulation）。</p>
+  <h2>公式</h2>
+  <p class="formula">I<sub>D</sub> = ½ · k<sub>n</sub>' · (W/L) · V<sub>ov</sub><sup>2</sup> · (1 + λ·V<sub>DS</sub>)</p>
+  <p>k<sub>n</sub>'：製程轉導參數（µA/V²）；W/L：寬長比；λ：通道長度調變係數（V<sup>−1</sup>）。</p>
+  <h2>範例</h2>
+  <div class="example">
+    <p><strong>題目：</strong>k<sub>n</sub>' = 100 µA/V²、W/L = 10、V<sub>ov</sub> = 0.5 V、λ = 0.1 V<sup>−1</sup>、V<sub>DS</sub> = 2 V，求 I<sub>D</sub>。</p>
+    <p><strong>解法：</strong>V<sub>DS</sub> = 2 V ≥ V<sub>ov</sub> = 0.5 V，在飽和區。I<sub>D</sub> = ½ × 100 µ × 10 × 0.5<sup>2</sup> × (1 + 0.1 × 2) = 125 µA × 1.2。</p>
+    <p><strong>答案：</strong>I<sub>D</sub> = 150 µA。</p>
+  </div>
+  <h2>常見錯誤</h2>
+  <div class="pitfall"><ul>
+    <li>漏掉 (1 + λ·V<sub>DS</sub>)，會得到 125 µA，少算 25 µA。</li>
+    <li>沒先檢查 V<sub>DS</sub> ≥ V<sub>ov</sub> 就直接代公式。</li>
+    <li>把 V<sub>GS</sub> 當成 V<sub>ov</sub> 代入。</li>
+  </ul></div>
+  <h2>小結</h2>
+  <p>先判斷區域，再代公式；有 λ 就不能省略 (1 + λ·V<sub>DS</sub>)。</p>
+</main>
+<nav id="pager"></nav>
+<footer>電路筆記</footer>
+<script src="../assets/lessons.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

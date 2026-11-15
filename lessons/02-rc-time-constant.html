@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RC 時間常數｜電路筆記</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-lesson="02-rc-time-constant">
+<header>
+  <a href="../index.html">回課程清單</a>
+  <h1>RC 時間常數</h1>
+  <p class="lead">τ = RC 決定電容充放電的快慢。</p>
+</header>
+<main class="lesson">
+  <h2>學習目標</h2>
+  <ul><li>算出 RC 電路的時間常數 τ</li><li>估算充電到某個比例所需時間</li></ul>
+  <h2>重點觀念</h2>
+  <p>電容經電阻接上直流電源 V<sub>S</sub> 充電時，電壓按指數曲線上升。τ 越大，充電越慢。</p>
+  <h2>公式</h2>
+  <p class="formula">τ = R · C　　v<sub>C</sub>(t) = V<sub>S</sub> · (1 − e<sup>−t/τ</sup>)</p>
+  <p>R 單位 Ω，C 單位 F，τ 單位 s。</p>
+  <h2>範例</h2>
+  <div class="example">
+    <p><strong>題目：</strong>R = 10 kΩ、C = 100 nF，求 τ，以及 t = τ 與 t = 5τ 時 v<sub>C</sub> 為 V<sub>S</sub> 的幾 %。</p>
+    <p><strong>解法：</strong>τ = 10×10<sup>3</sup> × 100×10<sup>−9</sup> = 1×10<sup>−3</sup> s。t = τ：1 − e<sup>−1</sup> ≈ 0.632；t = 5τ：1 − e<sup>−5</sup> ≈ 0.993。</p>
+    <p><strong>答案：</strong>τ = 1 ms；t = τ 約 63.2%；t = 5τ 約 99.3%。</p>
+  </div>
+  <h2>常見錯誤</h2>
+  <div class="pitfall"><ul>
+    <li>nF 沒換成 F（10<sup>−9</sup>），τ 會差好幾個數量級。</li>
+    <li>把 τ 當成「充滿的時間」；τ 時只充到約 63%。</li>
+  </ul></div>
+  <h2>小結</h2>
+  <p>先算 τ，再用 1 − e<sup>−t/τ</sup> 換算比例；工程上常以 5τ 視為已充飽。</p>
+</main>
+<nav id="pager"></nav>
+<footer>電路筆記</footer>
+<script src="../assets/lessons.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>
