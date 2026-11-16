@@ -46,6 +46,7 @@ circuit-notes/
 4. `<nav id="pager"></nav>` 與 `<footer>`，並載入 `../assets/lessons.js` 再載入 `../assets/site.js`（順序不可顛倒）
 
 ## 6. 新增一課的標準流程（AI 照做）
+0. 開始前必須讀完 `assets/lessons.js`、`assets/site.js`、`templates/lesson-template.html`。缺任何一個，先向使用者索取，不得自行假設內容。
 1. 讀 `assets/lessons.js` 取得目前最大編號，新課編號 = 最大編號 + 1，兩位數補零。
 2. 複製 `templates/lesson-template.html` 到 `lessons/NN-slug.html`，把所有【】占位文字換成真實內容。
 3. 在 `assets/lessons.js` 的陣列最後新增一筆登記（欄位：id、slug、title、summary、tags）。
@@ -53,7 +54,11 @@ circuit-notes/
 5. 依第 9 節驗收清單自我檢查，最後回報：新增了哪些檔案、修改了哪些檔案。
 
 ## 7. 命名規則
-- 檔名：`NN-slug.html`；slug 只用小寫英文與連字號，例如 `03-bjt-early-effect`。
+- 三個名稱的關係（以第 3 課為例）：
+  - `id`：兩位數編號，例如 `"03"`
+  - `slug`：只用小寫英文與連字號，**不含編號**，例如 `"bjt-early-effect"`
+  - 檔名 = `{id}-{slug}.html` → `lessons/03-bjt-early-effect.html`
+  - `<body data-lesson>` = `{id}-{slug}` → `"03-bjt-early-effect"`
 - 課程標題：名詞片語，不加「第 N 課」（編號由程式顯示）。
 - `tags` 用中文短詞，1～3 個，例如 `["MOSFET","直流分析"]`。
 
